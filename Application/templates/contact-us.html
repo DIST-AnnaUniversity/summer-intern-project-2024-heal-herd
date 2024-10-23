@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #bbb 4px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        header li {
+            list-style-type: none;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            display: flex;
+            align-items: center;
+        }
+
+        header #branding h1 {
+            margin-left: 500px;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #cbb09c;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Showcase */
+        #showcase {
+            min-height: 400px;
+            background: url('https://t3.ftcdn.net/jpg/03/91/46/10/360_F_391461057_5P0BOWl4lY442Zoo9rzEeJU0S2c1WDZR.jpg') no-repeat center center/cover;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        #showcase p {
+            font-size: 20px;
+            color: white;
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .newsletter-form button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .newsletter-form button:hover {
+            background: #555;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px;
+            background: #f4f4f4;
+        }
+
+        .contact .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact .map {
+            width: 50%;
+        }
+
+        .contact .form {
+            width: 45%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-txt h4 {
+            color: #cbb09c;
+            font-size: 20px;
+        }
+
+        .form-txt span {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .form-txt h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .form-txt p {
+            color: #777;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .form-details input[type="text"],
+        .form-details input[type="email"],
+        .form-details textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-details textarea {
+            resize: vertical;
+        }
+
+        .form-details button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-details button:hover {
+            background: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-top: #bbb 4px solid;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+
+        .footer-container .content_1 img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-container .content_1 p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-container .content_2, .footer-container .content_3, .footer-container .content_4 {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .footer-container h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #cbb09c;
+        }
+
+        .footer-container a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .footer-container a:hover {
+            color: #cbb09c;
+        }
+
+        .f-design {
+            background: #222;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .f-design-txt {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .f-design-txt p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>HEALHEARD</h1>
+            </div>
+           
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome to Our Website</h1>
+           
+        </div>
+    </section>
+
+   
+    <section id="contact">
+        <div class="contact container">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=medavakkam&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <form action="https://formspree.io/f/xzbowpjq" method="POST">
+                <div class="form">
+                    <div class="form-txt">
+                        <h4>INFORMATION</h4>
+                        <h1>Contact Us</h1>
+                        <span>This is your HEALHEARD focusing on cattle health</span>
+                        <h3>CHENNAI</h3>
+                        <p>195 E Medavakkam Chennai<br>+91-7305900924</p>
+                        
+                    </div>
+                    <div class="form-details">
+                        <input type="text" name="name" id="name" placeholder="Name" required>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                        <textarea name="message" id="message" cols="52" rows="7" placeholder="Message" required></textarea>
+                        <button>SEND MESSAGE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container container">
+            <div class="content_1">
+                <img src="../static/uploads/cow2-2-removebg-preview.png" alt="logo">
+                <p>The customer is at the heart of our<br>unique business model, which includes<br>Health</p>
+                <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards">
+            </div>
+            <div class="content_2">
+                <h4>MOTIVE</h4>
+                <a href="">Cattle Health</a>
+                <a href="" target="_blank">Smart LIVESTOCK</a>
+                <a href="" target="_blank">Medicine</a>
+                <a href="" target="_blank">Map Application</a>
+            </div>
+            <div class="content_3">
+                <h4>GOTO</h4>
+                <a href="/contact">Contact Us</a>
+                <a href="/" target="_blank">Home</a>
+                <a href="/index" target="_blank">Disease Detection</a>
+                <a href="/map" target="_blank">Map</a>
+            </div>
+            <div class="content_4">
+                <h4>NEWSLETTER</h4>
+                <p>Be the first to know about new<br>Project "HEALHEARD"</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your Email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="f-design">
+            <div class="f-design-txt container">
+                <p>Design and Code by Ganesh</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
