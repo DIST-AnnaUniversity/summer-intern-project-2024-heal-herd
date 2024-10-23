@@ -1,0 +1,252 @@
+<!-- product_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #218838;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.2s;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            color: #28a745;
+            font-size: 16px;
+        }
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.snip1268 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  width: 100%;
+  color: #333333;
+  text-align: center;
+  background-color: #ffffff;
+  line-height: 1.6em;
+}
+.snip1268 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+.snip1268 .image {
+  position: relative;
+}
+.snip1268 img {
+  max-width: 100%;
+  vertical-align: top;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+.snip1268 .icons,
+.snip1268 .add-to-cart {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  opacity: 0;
+}
+.snip1268 .icons {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.snip1268 .icons a {
+  width: 32.5%;
+  background: #ffffff;
+}
+.snip1268 .icons a:hover {
+  background: #000000;
+}
+.snip1268 .icons a:hover i {
+  color: #ffffff;
+  opacity: 1;
+}
+.snip1268 .icons i {
+  line-height: 46px;
+  font-size: 20px;
+  color: #000000;
+  text-align: center;
+  opacity: 0.7;
+  margin: 0;
+}
+.snip1268 .add-to-cart {
+  position: absolute;
+  bottom: 20px;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  font-size: 0.8em;
+  color: #000000;
+  line-height: 46px;
+  letter-spacing: 1.5px;
+  background-color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.snip1268 .add-to-cart:hover {
+  background: #000000;
+  color: #ffffff;
+}
+.snip1268 figcaption {
+  padding: 20px 20px 30px;
+}
+.snip1268 h2,
+.snip1268 p {
+  margin: 0;
+  text-align: left;
+}
+.snip1268 h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.snip1268 p {
+  margin-bottom: 15px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+.snip1268 .price {
+  font-size: 1.3em;
+  opacity: 0.5;
+  font-weight: 700;
+  text-align: right;
+}
+.snip1268:hover img,
+.snip1268.hover img {
+  opacity: 0.8;
+}
+.snip1268:hover .icons,
+.snip1268.hover .icons,
+.snip1268:hover .add-to-cart,
+.snip1268.hover .add-to-cart {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+    </style>
+    <script>
+        function searchProducts() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let items = document.getElementsByClassName('product-item');
+            for (let i = 0; i < items.length; i++) {
+                let title = items[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    items[i].style.display = '';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        }
+      
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" class="search-bar" >
+            <input type="text" id="search" name="query" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+        <div class="product-list">
+            {% for product in product_items %}
+            
+            
+<figure class="snip1268">
+    <div class="image">
+      <a href="{{ product['product_link'] }}"><img src="{{ product['link'] }}" alt="{{ product['title'] }}"/></a>
+      <div class="icons">
+        <a href="#"><i class="ion-star"></i></a>
+        <a href="#"> <i class="ion-share"></i></a>
+        <a href="#"> <i class="ion-search"></i></a>
+      </div>
+      
+    </div>
+    <figcaption>
+      <h2>{{ product['title'] }}</h2>
+      
+      <div class="price">${{ product['price'] }}</div>
+    </figcaption>
+  </figure>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+

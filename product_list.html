@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: auto; }
+        .search-bar { margin: 20px 0; }
+        .product-list { display: flex; flex-wrap: wrap; gap: 20px; }
+        .product-item { border: 1px solid #ddd; padding: 10px; width: calc(33.333% - 20px); box-sizing: border-box; }
+        .product-item img { width: 100%; height: auto; }
+    </style>
+    <script>
+        function searchProducts() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let items = document.getElementsByClassName('product-item');
+            for (let i = 0; i < items.length; i++) {
+                let title = items[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    items[i].style.display = '';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="search" class="search-bar" onkeyup="searchProducts()" placeholder="Search for products...">
+        <div class="product-list">
+            
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/1">
+            <img src="https://web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp" alt="Box of Chocolate Candy">
+            <h3>Box of Chocolate Candy</h3>
+            <p>24.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/2">
+            <img src="https://web-scraping.dev/assets/products/darkred-potion.webp" alt="Dark Red Energy Potion">
+            <h3>Dark Red Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/3">
+            <img src="https://web-scraping.dev/assets/products/teal-potion.webp" alt="Teal Energy Potion">
+            <h3>Teal Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/4">
+            <img src="https://web-scraping.dev/assets/products/red-potion.webp" alt="Red Energy Potion">
+            <h3>Red Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/5">
+            <img src="https://web-scraping.dev/assets/products/blue-potion.webp" alt="Blue Energy Potion">
+            <h3>Blue Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/1">
+            <img src="https://web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp" alt="Box of Chocolate Candy">
+            <h3>Box of Chocolate Candy</h3>
+            <p>24.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/2">
+            <img src="https://web-scraping.dev/assets/products/darkred-potion.webp" alt="Dark Red Energy Potion">
+            <h3>Dark Red Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/3">
+            <img src="https://web-scraping.dev/assets/products/teal-potion.webp" alt="Teal Energy Potion">
+            <h3>Teal Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/4">
+            <img src="https://web-scraping.dev/assets/products/red-potion.webp" alt="Red Energy Potion">
+            <h3>Red Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/5">
+            <img src="https://web-scraping.dev/assets/products/blue-potion.webp" alt="Blue Energy Potion">
+            <h3>Blue Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/6">
+            <img src="https://web-scraping.dev/assets/products/dragon-potion.webp" alt="Dragon Energy Potion">
+            <h3>Dragon Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/7">
+            <img src="https://web-scraping.dev/assets/products/hiking-boots-1.webp" alt="Hiking Boots for Outdoor Adventures">
+            <h3>Hiking Boots for Outdoor Adventures</h3>
+            <p>89.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/8">
+            <img src="https://web-scraping.dev/assets/products/women-sandals-beige-1.webp" alt="Women's High Heel Sandals">
+            <h3>Women's High Heel Sandals</h3>
+            <p>59.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/9">
+            <img src="https://web-scraping.dev/assets/products/men-running-shoes.webp" alt="Running Shoes for Men">
+            <h3>Running Shoes for Men</h3>
+            <p>49.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/10">
+            <img src="https://web-scraping.dev/assets/products/kids-light-up-sneakers-red-1.webp" alt="Kids' Light-Up Sneakers">
+            <h3>Kids' Light-Up Sneakers</h3>
+            <p>29.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/11">
+            <img src="https://web-scraping.dev/assets/products/classic-leather-sneakers-white.webp" alt="Classic Leather Sneakers">
+            <h3>Classic Leather Sneakers</h3>
+            <p>79.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/12">
+            <img src="https://web-scraping.dev/assets/products/cat-ear-beanie-grey.webp" alt="Cat-Ear Beanie">
+            <h3>Cat-Ear Beanie</h3>
+            <p>14.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/13">
+            <img src="https://web-scraping.dev/assets/products/orange-chocolate-box-medium-1.webp" alt="Box of Chocolate Candy">
+            <h3>Box of Chocolate Candy</h3>
+            <p>24.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/14">
+            <img src="https://web-scraping.dev/assets/products/darkred-potion.webp" alt="Dark Red Energy Potion">
+            <h3>Dark Red Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+    <div class="product-item">
+        <a href="https://web-scraping.dev/product/15">
+            <img src="https://web-scraping.dev/assets/products/teal-potion.webp" alt="Teal Energy Potion">
+            <h3>Teal Energy Potion</h3>
+            <p>4.99</p>
+        </a>
+    </div>
+    
+        </div>
+    </div>
+</body>
+</html>

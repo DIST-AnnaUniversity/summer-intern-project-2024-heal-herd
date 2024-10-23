@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        .hospital-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Nearby Veterinary Care</h1>
+        <div id="map"></div>
+        <div id="locationDetails" class="mt-3"></div>
+        <div id="hospitalList" class="mt-3"></div>
+    </div>
+
+    <script>
+        async function initMap() {
+            const { Map, Geolocation } = await google.maps.importLibrary("maps", "geolocation");
+            const { PlacesService } = await google.maps.importLibrary("places");
+
+            const map = new Map(document.getElementById("map"), {
+                center: { lat: 0, lng: 0 },
+                zoom: 12,
+            });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    const userLatLng = new google.maps.LatLng(latitude, longitude);
+
+                    map.setCenter(userLatLng);
+
+                    const locationDetails = document.getElementById('locationDetails');
+                    locationDetails.innerHTML = `<p><strong>Current Location:</strong> ${latitude}, ${longitude}</p>`;
+
+                    const service = new PlacesService(map);
+
+                    const request = {
+                        location: userLatLng,
+                        radius: 5000,
+                        type: ['veterinary_care']
+                    };
+
+                    const hospitals = [];
+
+                    service.nearbySearch(request, (results, status) => {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            results.forEach(place => {
+                                const name = stripHtmlTags(place.name);
+                                const vicinity = stripHtmlTags(place.vicinity);
+                                const rating = place.rating || 'Not rated';
+
+                                hospitals.push(`<div class="hospital-box">
+                                                    <p><strong>Name:</strong> ${name}</p>
+                                                    <p><strong>Address:</strong> ${vicinity}</p>
+                                                    <p><strong>Rating:</strong> ${rating}</p>
+                                                </div>`);
+                                createMarker(place); 
+                            });
+
+                           
+                     document.getElementById('hospitalList').innerHTML = hospitals.join('');
+                        } else {
+                            console.error('Places service failed:', status);
+                        }
+                    });
+            
+            
+            function createMarker(place) {
+                new google.maps.Marker({
+                    position: place.geometry.location,
+                    map,
+                    title: place.name
+                });
+            }
+
+            function stripHtmlTags(htmlString) {
+                const div = document.createElement('div');
+                div.innerHTML = htmlString;
+                return div.textContent || div.innerText || '';
+            }
+
+        }, error => {
+            console.error('Error getting user location:', error);
+        });
+    } else {
+        console.error('Geolocation is not supported by this browser.');
+    }
+}
+
+initMap();
+
+
+
+</script>
+
+    <script async  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDP8Sy2pOrdMBp_7kvkgXHA-ZeIP_30gQQ&loading=async&callback=initMap"></script>
+</body>
+</html>
